@@ -1,0 +1,105 @@
+#!/bin/bash
+###
+###
+##menu="$1"
+echo "######"
+echo "###### Ejercicio 6.5 en Miriadax.net"
+echo "######"
+#$comando2 $1 $2
+#########
+########
+
+comando2="cal"
+##menu="$1"
+
+fechaMes=$(date +"%-m")
+fechaAnio=$(date +"%Y")
+Mes=$fechaMes
+Anio=$fechaAnio
+e_valor=21
+e_novalor=22
+
+#read menu
+
+##entrada de datos $#
+##
+case $# in
+  0)     $comando2 $Mes $Anio
+  echo " $Mes $Anio fecha Mes actual sin datos "
+  echo " $Mes  $fecha es el mes correcto"
+ ;;
+##mes 1 ANO actual
+  1)   if [ $1 = 1 ]
+                  then
+
+                       $comando2 $1 $Anio ;exit
+                   echo "$fecha  mes $1 actuali con datos"
+
+  ##revisa si el mes es enero "ene"
+       elif [ "$1" = "ene" ]
+   then
+
+    $comando2 1 $Anio ;exit
+    echo "Dos >> ($1) $Mes $Anioi"
+       ##else
+              ## echo "$1 valor no ingresado" >&2; exit ${e_valor}
+              ##fi;;
+
+  ##revisa si el mes es "jan"
+  elif [ "$1" = "jan" ]
+    then
+
+   $comando2 1 $Anio ;exit
+     echo "Jan $1"
+
+             fi
+ ##ayuda
+        if [ "$1" = "-help" ]
+                    then
+    echo  "Menu ayuda  $1 ayuda con -help"
+             echo "esta es la ayuda 1.0"
+                    echo "digita los valores ./archivo variable variable"
+                    echo " ./archivo 1 2018"
+                    echo " los valores solicitados validan en este archivo como dice cada punto"
+      echo "######################################################################"
+             echo "Esta practica se evaluara en pares, ejecutando el script con, al menos, los siguientes casos de prueba:"
+                    echo "#####################################################################3"
+          echo "1.   mcal -Proporciona el calendario del mes actual."
+                    echo "2.   mcal 1   -Proporciona el calendario de enero del actual."
+                    echo "3.   mcal ene -Proporciona el calendario de enero del actual."
+                    echo "4.   mcal jan -Proporciona el calendario de enero del actual."
+                    echo "5.   mcal 1 1 -Proporciona el calendario de enero del anio."
+                    echo "6.   mcal 2018 -Proporciona el calendario del anio2018."
+                    echo "7.   mcal 2018 > temp - Escribe en el fichero de nombre temp el calendario del ono 2018."
+                    echo "8.   mcal -help -Proporciona en consola el texto de ayuda."
+                    echo "9.   mcal -help >temp2 -Proporciona en consola el texto de ayuda."
+                    echo "10.  mcal 13   - Proporciona el calendario del anio 3."
+      echo "####################################################################"
+      echo "##############Gracias por utilizar la ayuda#########################" ;exit
+
+                 fi
+ ### revisa si el anio acutal 2018
+        if [ $1 -eq 2018 ]
+                    then
+      $comando2 $1  ;exit
+        fi
+ ### revis si el ano 13
+        if [ $1 -eq 13 ]
+      then
+             $comando2 $1 ;exit
+               else
+      echo " anio 13" >&2;exit ${e_novalor}
+
+fi;;
+##cerrando if de arriba###
+
+         ######  ano 1 mes Enero
+ 2) if [ $1 -eq $2 ]
+   then
+   $comando2 1 1 ;exit
+   echo "ANO 1 Enero"
+  else
+                    echo "$1 El valor a ingresar es Eneo 1 del ANO 1" >&2;exit ${e_valor}
+
+         fi;;
+esac
